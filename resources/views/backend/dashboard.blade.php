@@ -1,7 +1,8 @@
 @extends('layouts.backend')
 
-@section('title', 'Welcome')
+@section('title', 'Dashboard')
 
 @section('content')
-    Hello World
+	This is Dashboard.
+
 @endsection

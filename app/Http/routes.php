@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +25,14 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+	Route::controller('auth', 'Auth\AuthController', [
+		'getLogin' => 'auth.login',
+		'getLogout' => 'auth.logout'
+		]);
+
+	Route::get('backend/dashboard', ['as' => 'backend.dashboard', 'uses' => 'Backend\DashboardController@index']);
+
+	Route::get('/', function () {
+		return view('welcome');
+	});
 });
